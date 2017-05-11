@@ -1,0 +1,33 @@
+.mainNav {
+  background: teal;
+  padding-top: 0.5em;
+  padding-right: 3em;
+  padding-bottom: 0.5em;
+}
+
+.mainNav ul {
+  float: right;
+}
+
+.links {
+  color: white;
+  display: inline-block;
+}
+
+.links:hover {
+  color: teal;
+  text-decoration: none;
+}
+
+.heading {
+  color: white;
+}
+
+.logo-header {
+  text-align: center;
+  padding-top: 2em;
+}
+
+.logo {
+  width: 200px;
+}

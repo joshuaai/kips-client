@@ -1,0 +1,25 @@
+body { 
+  margin: 2em;
+}
+
+input { 
+  margin-right: 0.5em;
+}
+
+.collection {
+  padding: 20px;
+}
+
+.collections {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.collection h4 {
+  color: teal;
+}
+
+.categoryForm {
+  text-align: center;
+  margin-top: 15px;
+}
