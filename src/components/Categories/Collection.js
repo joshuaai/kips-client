@@ -4,7 +4,7 @@ import { observer, inject } from 'mobx-react';
 import Nav from '../Layout';
 import Category from './Category';
 
-import './Collection.css';
+import './index.css';
 
 @inject('categories') @observer
 class Collection extends React.Component {
@@ -32,7 +32,7 @@ class Collection extends React.Component {
           <input ref='name' type='text' placeholder='Category Name' />
           <input ref='color' type='text' placeholder='Preferred Color' />
 
-          <button type="submit" className="pure-button pure-button-primary">Add Category</button>
+          <button type="submit" className="pure-button pure-button-primary addButton">Add Category</button>
         </fieldset>
       </form>
     </div>;

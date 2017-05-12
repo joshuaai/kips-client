@@ -1,6 +1,6 @@
 a {
   text-decoration: none;
-  color: teal;
+  color: teal; /*color: #0078E7;*/
 }
 
 .removeButton {
@@ -10,4 +10,5 @@ a {
 
 .removeButton:hover {
   text-decoration: none;
+  color: rosybrown;
 }

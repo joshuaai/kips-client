@@ -4,6 +4,8 @@ import { observer, inject } from 'mobx-react';
 import Nav from '../Layout';
 import Link from './Link'
 
+import './index.css';
+
 @inject(['categories']) @observer
 class Show extends React.Component {
   componentWillMount() {
@@ -31,7 +33,7 @@ class Show extends React.Component {
           <h4>New Link</h4>
           <input ref='title' type='text' placeholder='Link Title' />
           <input ref='url' type='text' placeholder='Url' />
-          <button type="submit" className="pure-button pure-button-primary">Add Link</button>
+          <button type="submit" className="pure-button pure-button-primary addButton">Add Link</button>
         </fieldset>
       </form>
     </div>;
