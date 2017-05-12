@@ -7,3 +7,7 @@ a {
   background: maroon;
   color: white;
 }
+
+.removeButton:hover {
+  text-decoration: none;
+}

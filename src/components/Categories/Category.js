@@ -1,11 +1,11 @@
 import React from 'react';
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 
 import './Category.css';
 
 import { Link } from 'react-router-dom';
 
-@observer(['categories'])
+@inject(['categories']) @observer
 class Category extends React.Component {
   removeContact = (e) => {
     e.preventDefault();
@@ -16,7 +16,7 @@ class Category extends React.Component {
     return (
       <div className='pure-u-1-3'>
         <h2>
-          <Link to={`/category/${this.props.id}/links`}>
+          <Link to={`/categories/${this.props.id}/links`}>
             {this.props.name}
           </Link>
         </h2>

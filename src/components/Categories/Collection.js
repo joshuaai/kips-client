@@ -39,7 +39,6 @@ class Collection extends React.Component {
 
   render() {
     const { all } = this.props.categories;
-
     return (
       <div id='Collection' className='collection'>
         <Nav.Application />

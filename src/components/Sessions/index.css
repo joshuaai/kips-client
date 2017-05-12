@@ -5,6 +5,10 @@
   margin-right: auto;
 }
 
+.session {
+  padding: 20px;
+}
+
 .signInForm input {
   margin-bottom: 1em !important;
 }

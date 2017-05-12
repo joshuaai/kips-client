@@ -5,7 +5,9 @@ import Api from './Helpers';
 class Categories {
   path = '/categs';
   @observable all = [];
+  @observable allLinks = [];
   @observable isLoading = false;
+  @observable catId = null;
 
   @action async fetchAll() {
     this.isLoading = false;
@@ -17,17 +19,22 @@ class Categories {
     }
   }
 
-  @action async add(data) {
-    const response = await Api.post(this.path, data);
+  @action async fetchLinks(categoryId) {
+    this.isLoading = false;
+    const response = await Api.get(`${this.path}/${categoryId}/lins`);
     const status = await response.status;
 
-    if (status === 201) {
-      this.fetchAll();
+    if (status === 200) {
+      this.allLinks = await response.json();
     }
   }
 
-  @action async addLink(data, categoryId) {
-    const response = await Api.post(`/categs/${categoryId}/lins`, data);
+  @action setCatId(id) {
+    this.catId = id;
+  }
+
+  @action async add(data) {
+    const response = await Api.post(this.path, data);
     const status = await response.status;
 
     if (status === 201) {
@@ -51,6 +58,30 @@ class Categories {
     if (status === 200) {
       this.isLoading = false;
       this.fetchAll();
+    }
+  }
+
+  @action async addLink(data, categoryId) {
+    const response = await Api.post(`${this.path}/${categoryId}/lins`, data);
+    const status = await response.status;
+
+    if (status === 201) {
+      this.fetchLinks(categoryId);
+    }
+  }
+
+  @action findCatId(categoryId) {
+    this.setCatId(categoryId);
+  }
+
+  @action async removeLink(linkId, categoryId) {
+    this.isLoading = true;
+    const response = await Api.delete(`${this.path}/${categoryId}/lins/${linkId}`);
+    const status = await response.status;
+
+    if (status === 200) {
+      this.isLoading = false;
+      this.fetchLinks(categoryId);
     }
   }
 }

@@ -21,7 +21,7 @@ class New extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='session'>
         <Nav.Application />
         <div className='signInForm'>
           <form className='pure-form pure-form-stacked' onSubmit={this.submitForm}>

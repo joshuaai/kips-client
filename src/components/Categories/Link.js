@@ -1,24 +1,23 @@
 import React from 'react';
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 
 import './Category.css';
 
-@observer(['categories'])
+@inject(['categories']) @observer
 class Link extends React.Component {
-
-  componentWillMount() {
-    const category = this.props.categories.find(this.props.match.params.categoryId);
-    this.setState({ category });
+  removeLink = (e) => {
+    e.preventDefault();
+    this.props.categories.removeLink(this.props.id, this.props.categories.catId);
   }
 
   render() {
     return (
       <div className='pure-u-1-3'>
         <h2>
-            {this.state.category.lins.title}
+            {this.props.title}
         </h2>
-        <p>{this.state.category.lins.link_url}</p>
-        <a href='#' className='pure-button removeButton' onClick={this.removeContact}>Remove</a>
+        <p>{this.props.link_url}</p>
+        <a href='#' className='pure-button removeButton' onClick={this.removeLink}>Remove</a>
       </div>
     )
   }
