@@ -45,6 +45,9 @@ class Collection extends React.Component {
         {this.newCategory()}
         <div className='collections'>
           <h4>My Categories</h4>
+          <h4><b>{all.slice().map(c => c.lins_count).reduce((acc, curr, idx, arr) => acc + curr, 0)} </b> 
+              Links in <b>{all.slice().map(c => c.id).length}</b> Categories
+          </h4>
           <div className='pure-g'>
             {all.slice().map(info =>
               <Category key={info.id} {...info} />

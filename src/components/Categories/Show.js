@@ -47,6 +47,7 @@ class Show extends React.Component {
         {this.newLink()}
         <div className='collections'>
           <h4>My Links</h4>
+          <h4><b>{allLinks.slice().map(c => c.id).length}</b> Links</h4>
           <div className='pure-g'>
             {allLinks.slice().map(info =>
               <Link key={info.id} {...info} />
