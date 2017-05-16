@@ -7,7 +7,7 @@ const Guest = () =>
   <ul className='pure-menu-list'>
     <li className='pure-menu-item'>
       <Link to='/sign_in' className='pure-menu-link links'>Sign In</Link>
-      <Link to='/categories' className='pure-menu-link links'>Categories</Link></li>
+      <Link to='/sign_up' className='pure-menu-link links'>Sign Up</Link></li>
   </ul>;
 
 export default Guest;

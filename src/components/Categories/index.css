@@ -10,20 +10,106 @@ input {
   padding: 0 20px 20px;
 }
 
+.collection span {
+  color: royalblue;
+}
+
 .addButton {
-  background: teal;
+  background: royalblue;
 }
 
 .collections {
   text-align: center;
-  margin-top: 25px;
+  margin-top: 5px;
 }
 
 h4 {
-  color: #02487B;
+  color: royalblue;
+  font-weight: 500;
+}
+
+.hfour {
+  width: 30%;
+  display: inline-block;
+  text-align: center;
+}
+
+.hfour h3 {
+  color: crimson;
+}
+
+#cat {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #bebebe;
+}
+
+#count {
+  margin-bottom: 15px;
+}
+
+h4 > b {
+  color: crimson;
 }
 
 .categoryForm {
   text-align: center;
   margin-top: 15px;
+}
+
+/*--------------------------- Category & Link Boxes ----------------------*/
+.box {
+  text-align: center;
+  padding: 2em 4em;
+  letter-spacing: 0em;
+}
+
+/*--------------------------- Category Component -------------------------*/
+
+.category {
+  height: 250px;
+  box-shadow: 3px 3px 3px #898a8c;
+}
+
+.categoryIcon {
+  height: 50px; 
+  padding: 1em 2em;
+  text-align: right;
+}
+
+.categoryIcon span {
+  color: white;
+}
+
+.categoryName { 
+  padding: 2em 2em; 
+  text-align: left;
+}
+
+.categoryName a {
+  color: white;
+  text-decoration: none;
+}
+
+.categoryCount { 
+  padding: 0 2em 2em; 
+  color: #ffffff;
+  text-align: left;
+}
+
+/*--------------------------- Link Component -------------------------------*/
+.linkTop {
+  background-color: royalblue; 
+  height: 10px; 
+  box-shadow: 2px 0px 2px #e5e7ea;
+}
+
+.link {
+  border: 1px solid #e5e7ea; 
+  padding: 0em 2em; 
+  box-shadow: 2px 2px 2px #e5e7ea;
+}
+
+.linkIcon {
+  text-align: right;
+  color: royalblue;
 }

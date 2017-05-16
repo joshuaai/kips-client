@@ -1,25 +1,24 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react';
-
+import { Redirect } from 'react-router-dom';
 import Nav from '../Layout';
 import './index.css';
 
 @inject('user') @observer
 class New extends React.Component {
-  
+
   submitForm = (e) => {
     e.preventDefault();
-
     const { user } = this.props;
-
-    user.signIn(
-      this.email.value,
-      this.password.value,
-    );
-
-  }
+    user.signIn(this.email.value, this.password.value,);
+  } 
 
   render() {
+    if (this.props.user.signedIn) {
+      return (
+        <Redirect to='/categories' />
+      )
+    }
     return (
       <div className='session'>
         <Nav.Application />

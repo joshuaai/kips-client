@@ -7,10 +7,10 @@ const headers = () => {
 
   const session = {
     email: localStorage.getItem('email'),
-    token: localStorage.getItem('auth_token'),
+    auth_token: localStorage.getItem('auth_token'),
   };
 
-  if (session.email && session.token) {
+  if (session.email && session.auth_token) {
     h.append('X-User-Email', session.email);
     h.append('X-User-Token', session.auth_token);
   }

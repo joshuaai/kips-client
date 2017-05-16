@@ -10,7 +10,7 @@ import './index.css';
 class Show extends React.Component {
   componentWillMount() {
     const id = this.props.match.params.categoryId;
-    this.props.categories.findCatId(id);
+    this.props.categories.setCatId(id);
     this.props.categories.fetchLinks(id);
   }
 
@@ -28,9 +28,11 @@ class Show extends React.Component {
 
   newLink = () =>
     <div className='categoryForm'>
+      <div className='hfour'>
+        <h3 id='cat'>{this.props.categories.catName}</h3>
+      </div>
       <form className='pure-form' onSubmit={this.addLink}>
         <fieldset>
-          <h4>New Link</h4>
           <input ref='title' type='text' placeholder='Link Title' />
           <input ref='url' type='text' placeholder='Url' />
           <button type="submit" className="pure-button pure-button-primary addButton">Add Link</button>
@@ -43,10 +45,9 @@ class Show extends React.Component {
 
     return (
       <div id='Show' className='collection'>
-        <Nav.Application />
+        <Nav.Application /> 
         {this.newLink()}
         <div className='collections'>
-          <h4>My Links</h4>
           <h4><b>{allLinks.slice().map(c => c.id).length}</b> Links</h4>
           <div className='pure-g'>
             {allLinks.slice().map(info =>

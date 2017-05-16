@@ -8,6 +8,7 @@ class Categories {
   @observable allLinks = [];
   @observable isLoading = false;
   @observable catId = null;
+  @observable catName = null;
 
   @action async fetchAll() {
     this.isLoading = false;
@@ -31,6 +32,10 @@ class Categories {
 
   @action setCatId(id) {
     this.catId = id;
+  }
+
+  @action setCatName(name) {
+    this.catName = name;
   }
 
   @action async add(data) {
@@ -68,10 +73,6 @@ class Categories {
     if (status === 201) {
       this.fetchLinks(categoryId);
     }
-  }
-
-  @action findCatId(categoryId) {
-    this.setCatId(categoryId);
   }
 
   @action async removeLink(linkId, categoryId) {

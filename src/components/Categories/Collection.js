@@ -8,6 +8,8 @@ import './index.css';
 
 @inject('categories') @observer
 class Collection extends React.Component {
+  state = { background: '#3599db', }
+  
   componentWillMount() {
     this.props.categories.fetchAll();
   }
@@ -17,21 +19,28 @@ class Collection extends React.Component {
 
     this.props.categories.add({
       name: this.refs.name.value,
-      color: this.refs.color.value, 
+      color: this.state.background, 
     });
 
     this.refs.name.value = null;
     this.refs.color.value = null;
   };
 
+  handleColorChange = (e) => {
+    this.setState({ background: e.target.value });
+  }
+
   newCategory = () =>
     <div className='categoryForm'>
+      <div className='hfour'>
+        <h4 id='cat'>New Category</h4>
+      </div>
       <form className='pure-form' onSubmit={this.addCategory}>
         <fieldset>
-          <h4>New Category</h4>
           <input ref='name' type='text' placeholder='Category Name' />
-          <input ref='color' type='text' placeholder='Preferred Color' />
-
+          <span>Your Color: &nbsp;
+            <input ref='inputColor' type='color' value={this.state.background} onChange={this.handleColorChange} />
+          </span>
           <button type="submit" className="pure-button pure-button-primary addButton">Add Category</button>
         </fieldset>
       </form>
@@ -44,9 +53,11 @@ class Collection extends React.Component {
         <Nav.Application />
         {this.newCategory()}
         <div className='collections'>
-          <h4>My Categories</h4>
-          <h4><b>{all.slice().map(c => c.lins_count).reduce((acc, curr, idx, arr) => acc + curr, 0)} </b> 
-              Links in <b>{all.slice().map(c => c.id).length}</b> Categories
+          <div className='hfour'> 
+            <h4 id='cat'>My Categories</h4>
+          </div>
+          <h4 id='count'><b>{all.slice().map(c => c.lins_count).reduce((acc, curr, idx, arr) => acc + curr, 0)} </b> 
+              links in <b>{all.slice().map(c => c.id).length}</b> categories
           </h4>
           <div className='pure-g'>
             {all.slice().map(info =>

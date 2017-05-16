@@ -9,7 +9,6 @@ class User {
   @observable isLoading = false;
   @observable signedIn = false;
   @observable email = null;
-  @observable shouldRedirect = false;
 
   @action setIsLoading(status) { 
     this.isLoading = status;
@@ -22,13 +21,9 @@ class User {
     }
   }
 
-  @action setShouldRedirect(status) {
-    this.shouldRedirect = status;
-  }
-
   signIn(email = null, password = null) {
     const store = {
-      authentication_token: localStorage.getItem('token'),
+      authentication_token: localStorage.getItem('auth_token'),
       email: localStorage.getItem('email'),
     }
 
@@ -47,8 +42,6 @@ class User {
       this.email = email;
       this.signedIn = true;
       this.isLoading = false;
-      this.setShouldRedirect(true);
-      
     } else {
       this.signOut();
     }
@@ -67,12 +60,11 @@ class User {
     if (status === 200) {
       const body = await response.json();
 
-      localStorage.setItem('token', body.auth_token);
+      localStorage.setItem('auth_token', body.auth_token);
       localStorage.setItem('email', body.email);
 
       this.setIsLoading(false);
       this.setSignedIn(true, body.email);
-      this.setShouldRedirect(true);
       
     } else {
       console.log('error');
@@ -93,12 +85,12 @@ class User {
 
   @action signOut() {
     localStorage.removeItem('email');
-    localStorage.removeItem('token');
+    localStorage.removeItem('auth_token');
 
     this.email = null;
     this.signedIn = false;
     this.isLoading = false;
-    this.setShouldRedirect(true);
+    this.signedIn = false;
     
   }
 }

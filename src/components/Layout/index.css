@@ -1,5 +1,5 @@
 .mainNav {
-  background: teal;
+  background: royalblue;
   padding-top: 0.5em;
   padding-right: 3em;
   padding-bottom: 0.5em;
@@ -15,7 +15,7 @@
 }
 
 .links:hover {
-  color: teal;
+  color: royalblue;
   text-decoration: none;
 }
 
@@ -29,5 +29,5 @@
 }
 
 .logo {
-  width: 200px;
+  width: 180px;
 }
